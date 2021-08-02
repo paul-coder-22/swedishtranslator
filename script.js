@@ -1,41 +1,56 @@
 /**
 * @FirstMethod
 */
-
 /* document.getElementById("btn").addEventListener("click", () => {
     let textValue = document.getElementById("text").value;
     axios.get('https://api.funtranslations.com/translate/pirate.json?text=' + textValue)
-        .then(res => renderTextDiv(res.data.contents.translated));
-})
+        .then(res => {
+            // console.log(res);
+            console.log(res)
+            renderTextDiv(res.data.contents.translated)
+        }).catch(e => console.log(e))
+}) */
 
 
-function renderTextDiv(text) {
+/* function renderTextDiv(text) {
+    console.log(text)
     document.getElementById("text-converted").innerText = text;
 } */
 
-
-/** 
- * @SecondMethod
- * @Without @catchcall @catchERROR
+/**
+ * @secondOne 
  */
-
 const url = 'https://api.funtranslations.com/translate/pirate.json?text='
 document.getElementById("btn").addEventListener("click", () => {
     let textValue = document.getElementById("text").value;
-    fetch(getTextUrl(textValue))
-        .then(e => e.json())
-        // .then(v => displaytext(v.contents.translated))
-        .then(v => displaytext(v))
-    // .catch(e => displaytext(e))
+    let url = getTextUrl(textValue);
+    // fetch(url)
+    //     .then(e => console.log(e.json()))
+    //     // .then(v => displaytext(v.contents.translated))
+    //     .then(json => {
+    //         var translatedtext = json.contents.translated;
+    //         console.log(translatedtext)
+    //         document.getElementById('text-converted').innerText = translatedtext;
+    //     })
+    //     .catch(errorHandles)
+    fetch(url)
+        .then(response => response.json())
+        .then(json => document.getElementById('text-converted').innerText = json.contents.translated)
+        .catch(e => console.log(e))
 
 });
 
 function getTextUrl(textUrl) {
-    return url + textUrl;
+    return 'https://api.funtranslations.com/translate/pirate.json?text=' + textUrl;
 }
 
-function displaytext(textDisplay) {
-    console.log(textDisplay)
+function errorHandles(error) {
+    console.log("Something went wrong " + error);
+    alert("something wrong with the server ! try after some thing.")
+}
+/* function displaytext(textDisplay) {
+
+    console.log(textDisplay.Contents)
     if (textDisplay.error) {
         const divBody = document.getElementById("text-converted");
         divBody.innerText = 'Wait Dude ! 🤍'
@@ -46,3 +61,4 @@ function displaytext(textDisplay) {
         divBody.style.backgroundColor = 'yellow'
     }
 }
+ */
