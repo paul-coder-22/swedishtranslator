@@ -2,19 +2,29 @@
     margin: 0%;
     padding: 0%;
     overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: , sans-serif; */
+    font-family: 'Black Rose','Poppins', sans-serif;
+                                                
 }
+
+:root{
+    --backgroundColor : #000;
+    --white:#fff;
+}
+
+
 body,html{
     margin: 0;
     padding: 0;
     min-width: 100%;
+    background-image: url(https://static.news.bitcoin.com/wp-content/uploads/2021/07/bbbb.jpg);
 }
 /* nav bar */
 nav{
     width: 100vw;
     /* background-color: #D6EFFF; */
     height: 2.5rem;
-    background-color: #000;
+    background-color: var(--backgroundColor);
 }
 ul{
     margin: 0%;
@@ -29,17 +39,10 @@ li{
 }
 a {
     text-decoration: none;
-    color: #fff;
-    font-size: 2vw;
-    transition: 0.5s;
+    color: var(--white);
+    font-size: 1.8rem;
 }
 
-/* hover section */
-a:hover{
-    /* background-color: #C6E9FF; */
-    background-color: rgba(185, 185, 185, 0.185);
-    border-radius: 5%;
-  }
 
 /* main-content */
 .main-container{
@@ -49,10 +52,19 @@ a:hover{
     position: relative;
 
 }
+.main-container h1{
+    color: var(--white);
+    font-weight: 200;
+}
 .main-container #text{
     width: 50%;
     resize: none;
+    font-size: 1.8rem;
 }
+.main-container #text::-webkit-input-placeholder{
+    font-size: 2rem;
+}
+
 .button-container{
     align-items: center !important;
     outline : none;
@@ -69,7 +81,8 @@ a:hover{
 }
 #text-converted{
     width: 50%;
-    border: 1px solid blue;
+    border: 2px solid var(--backgroundColor);
+    background-color: var(--white);
     height: 15vw;
     position: relative;
     left: 25%;
@@ -77,14 +90,14 @@ a:hover{
 }
 
 /* footer container */
+.footer-container h4{
+    color: blue;
+}
 .footer-container{
     width: 100vw;
-    position: relative;
-    height: 100%;
-    /* display: flex; */
-    /* align-self: center; */
     padding: 2% 2%;
     text-align: center;
+    font-size: 1.2rem;
 }
 .footer-text{
     display: inline-block;
@@ -103,7 +116,6 @@ hr{
     }
     .main-container{
         width: 100vw;
-        border: 1px solid red;
         text-align: center;
     }
     .main-container #text{
@@ -123,9 +135,7 @@ hr{
     }
     #text-converted{
         width: 88%;
-        border: 1px solid blue;
         height: 21vh;
-        position: relative;
         left: 5%;
         font-size: 15px;
     }
