@@ -3,7 +3,8 @@
     padding: 0%;
     overflow-x: hidden;
     /* font-family: , sans-serif; */
-    font-family: 'Black Rose','Poppins', sans-serif;
+    /* font-family: 'Black Rose','Poppins', sans-serif; */
+    font-family: 'Amatic SC', cursive;
                                                 
 }
 
@@ -102,6 +103,7 @@ a {
 .footer-text{
     display: inline-block;
      padding-right: 5%;
+     /* color: var(--white); */
 }
 hr{
     text-decoration: line-through;
